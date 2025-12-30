@@ -9,9 +9,13 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 120px 2rem 0 2rem;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 100px 1rem 0 1rem;
+  }
 
   &:before {
     content: '';
