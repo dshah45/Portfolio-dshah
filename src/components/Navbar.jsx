@@ -114,16 +114,18 @@ const MobileMenuToggle = styled(motion.button)`
 const MobileMenu = styled(motion.div)`
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 100vh;
-  width: 100%;
-  background: ${({ theme }) => theme.body};
+  width: 100vw;
+  background: ${({ theme }) => theme.body}F5;
+  backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  z-index: 999;
+  z-index: 9999;
+  overflow: hidden;
 `;
 
 const MobileNavLink = styled(motion.a)`
@@ -178,6 +180,21 @@ const Navbar = ({ darkMode, toggleTheme }) => {
     setMobileMenuOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    // Prevent body scroll when menu is open
+    if (!mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <>
       <NavContainer
@@ -218,10 +235,10 @@ const Navbar = ({ darkMode, toggleTheme }) => {
           </NavLinks>
 
           <MobileMenuToggle
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={toggleMobileMenu}
             whileTap={{ scale: 0.9 }}
           >
-            <FiMenu />
+            {mobileMenuOpen ? <FiX /> : <FiMenu />}
           </MobileMenuToggle>
         </NavContent>
       </NavContainer>
@@ -231,10 +248,10 @@ const Navbar = ({ darkMode, toggleTheme }) => {
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
-          transition={{ type: 'spring', damping: 20 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 120 }}
         >
           <CloseButton
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={closeMobileMenu}
             whileTap={{ scale: 0.9 }}
           >
             <FiX />
