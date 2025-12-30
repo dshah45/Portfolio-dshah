@@ -1,159 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiBook, FiCalendar } from 'react-icons/fi';
-
-const EducationSection = styled.section`
-  padding: 100px 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  background: ${({ theme }) => theme.body};
-
-  @media (max-width: 768px) {
-    padding: 80px 1rem;
-  }
-`;
-
-const SectionTitle = styled(motion.h2)`
-  font-size: clamp(2rem, 5vw, 3rem);
-  text-align: center;
-  margin-bottom: 1rem;
-  background: linear-gradient(
-    45deg,
-    ${({ theme }) => theme.text},
-    ${({ theme }) => theme.primary}
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-`;
-
-const SectionSubtitle = styled(motion.p)`
-  text-align: center;
-  color: ${({ theme }) => theme.text}CC;
-  font-size: 1.1rem;
-  margin-bottom: 4rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const EducationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-`;
-
-const EducationCard = styled(motion.div)`
-  background: ${({ theme }) => theme.card};
-  border-radius: 20px;
-  padding: 2rem;
-  border: 1px solid ${({ theme }) => theme.primary}20;
-  box-shadow: 0 10px 30px ${({ theme }) => theme.shadow};
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px ${({ theme }) => theme.primary}30;
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(
-      45deg,
-      ${({ theme }) => theme.primary},
-      ${({ theme }) => theme.accent}
-    );
-  }
-`;
-
-const EducationHeader = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  gap: 1rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const EducationInfo = styled.div`
-  flex: 1;
-`;
-
-const Institution = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`;
-
-const Degree = styled.h4`
-  font-size: 1.2rem;
-  color: ${({ theme }) => theme.primary};
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-`;
-
-const Duration = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: ${({ theme }) => theme.text}AA;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-`;
-
-const GradeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-`;
-
-const GradeCard = styled.div`
-  background: linear-gradient(
-    45deg,
-    ${({ theme }) => theme.primary},
-    ${({ theme }) => theme.accent}
-  );
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  text-align: center;
-  min-width: 120px;
-  box-shadow: 0 5px 15px ${({ theme }) => theme.primary}30;
-`;
-
-const GradeLabel = styled.div`
-  font-size: 0.8rem;
-  opacity: 0.9;
-  margin-bottom: 0.25rem;
-`;
-
-const GradeValue = styled.div`
-  font-size: 1.5rem;
-  font-weight: 700;
-`;
+import './Education.css';
 
 const Education = () => {
   const educationData = [
@@ -196,56 +44,57 @@ const Education = () => {
   };
 
   return (
-    <EducationSection id="education">
+    <section className="education-section" id="education">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <SectionTitle variants={itemVariants}>
+        <motion.h2 className="section-title" variants={itemVariants}>
           Education
-        </SectionTitle>
+        </motion.h2>
 
-        <SectionSubtitle variants={itemVariants}>
+        <motion.p className="section-subtitle" variants={itemVariants}>
           My academic journey in computer science and information technology
-        </SectionSubtitle>
+        </motion.p>
 
-        <EducationContainer>
+        <div className="education-container">
           {educationData.map((edu) => (
-            <EducationCard
+            <motion.div
               key={edu.id}
+              className="education-item"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              <EducationHeader>
-                <EducationInfo>
-                  <Institution>
+              <div className="education-header">
+                <div className="education-info">
+                  <h3 className="education-details">
                     <FiBook />
                     {edu.institution}
-                  </Institution>
+                  </h3>
                   
-                  <Degree>{edu.degree}</Degree>
+                  <h4 className="education-details">{edu.degree}</h4>
                   
-                  <Duration>
+                  <p className="education-details">
                     <FiCalendar />
                     {edu.duration}
-                  </Duration>
-                </EducationInfo>
+                  </p>
+                </div>
 
-                <GradeContainer>
-                  <GradeCard>
-                    <GradeLabel>{edu.gradeType}</GradeLabel>
-                    <GradeValue>{edu.grade}</GradeValue>
-                  </GradeCard>
-                </GradeContainer>
-              </EducationHeader>
-            </EducationCard>
+                <div className="grade-container">
+                  <div className="grade-card">
+                    <div className="grade-label">{edu.gradeType}</div>
+                    <div className="grade-value">{edu.grade}</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </EducationContainer>
+        </div>
       </motion.div>
-    </EducationSection>
+    </section>
   );
 };
 

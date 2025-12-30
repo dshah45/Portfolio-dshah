@@ -1,0 +1,112 @@
+/* Global Theme Variables */
+:root {
+  /* Light Theme Colors */
+  --theme-body: #ffffff;
+  --theme-secondary: #f8f9fa;
+  --theme-card: rgba(255, 255, 255, 0.9);
+  --theme-text: #333333;
+  --theme-primary: #007bff;
+  --theme-accent: #6f42c1;
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Text variations */
+  --theme-text-99: rgba(51, 51, 51, 0.99);
+  --theme-text-cc: rgba(51, 51, 51, 0.8);
+  --theme-text-dd: rgba(51, 51, 51, 0.87);
+  --theme-text-aa: rgba(51, 51, 51, 0.67);
+  
+  /* Primary variations */
+  --theme-primary-20: rgba(0, 123, 255, 0.2);
+  --theme-primary-10: rgba(0, 123, 255, 0.1);
+  --theme-primary-05: rgba(0, 123, 255, 0.05);
+  --theme-primary-30: rgba(0, 123, 255, 0.3);
+  --theme-primary-40: rgba(0, 123, 255, 0.4);
+  
+  /* Accent variations */
+  --theme-accent-10: rgba(111, 66, 193, 0.1);
+  --theme-accent-20: rgba(111, 66, 193, 0.2);
+  --theme-accent-40: rgba(111, 66, 193, 0.4);
+  
+  /* Secondary variations */
+  --theme-secondary-30: rgba(248, 249, 250, 0.3);
+  
+  /* Background variations */
+  --theme-body-f5: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --theme-body: #0a0a0a;
+  --theme-secondary: #1a1a2e;
+  --theme-card: rgba(22, 27, 34, 0.9);
+  --theme-text: #e6e6e6;
+  --theme-primary: #58a6ff;
+  --theme-accent: #bc8cff;
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+  
+  /* Text variations for dark theme */
+  --theme-text-99: rgba(230, 230, 230, 0.99);
+  --theme-text-cc: rgba(230, 230, 230, 0.8);
+  --theme-text-dd: rgba(230, 230, 230, 0.87);
+  --theme-text-aa: rgba(230, 230, 230, 0.67);
+  
+  /* Primary variations for dark theme */
+  --theme-primary-20: rgba(88, 166, 255, 0.2);
+  --theme-primary-10: rgba(88, 166, 255, 0.1);
+  --theme-primary-05: rgba(88, 166, 255, 0.05);
+  --theme-primary-30: rgba(88, 166, 255, 0.3);
+  --theme-primary-40: rgba(88, 166, 255, 0.4);
+  
+  /* Accent variations for dark theme */
+  --theme-accent-10: rgba(188, 140, 255, 0.1);
+  --theme-accent-20: rgba(188, 140, 255, 0.2);
+  --theme-accent-40: rgba(188, 140, 255, 0.4);
+  
+  /* Secondary variations for dark theme */
+  --theme-secondary-30: rgba(26, 26, 46, 0.3);
+  
+  /* Background variations for dark theme */
+  --theme-body-f5: rgba(10, 10, 10, 0.95);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--theme-body);
+  color: var(--theme-text);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent);
+}
+
+/* App container */
+.app-container {
+  min-height: 100vh;
+}

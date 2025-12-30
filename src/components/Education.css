@@ -1,0 +1,186 @@
+/* Education Component Styles */
+
+.education-section {
+  padding: 100px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: var(--theme-body);
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 80px 1rem;
+  }
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    45deg,
+    var(--theme-text),
+    var(--theme-primary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--theme-text-cc);
+  font-size: 1.1rem;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-item {
+  background: var(--theme-card);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px var(--theme-shadow);
+  border: 1px solid var(--theme-primary-20);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--theme-primary),
+    var(--theme-accent)
+  );
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--theme-primary-30);
+}
+
+.education-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .education-header {
+    flex-direction: column;
+  }
+}
+
+.education-info {
+  flex: 1;
+}
+
+.grade-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grade-container {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+.grade-card {
+  background: linear-gradient(
+    45deg,
+    var(--theme-primary),
+    var(--theme-accent)
+  );
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 5px 15px var(--theme-primary-30);
+}
+
+.grade-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.grade-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.education-info h3 {
+  color: var(--theme-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.education-info h4 {
+  color: var(--theme-primary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.education-info p {
+  color: var(--theme-text-aa);
+  font-size: 0.95rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.education-description {
+  color: var(--theme-text-cc);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.education-grade {
+  display: inline-block;
+  background: var(--theme-primary);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* CSS Variables */
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
