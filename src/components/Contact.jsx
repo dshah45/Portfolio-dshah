@@ -303,7 +303,7 @@ const Contact = () => {
     {
       icon: <FiMapPin />,
       label: 'Location',
-      value: '1/b 605 Indrsprastha, Jitendra Road, Malad - East, Mumbai - 400097'
+      value: 'Mumbai'
     },
     {
       icon: <FiGithub />,
