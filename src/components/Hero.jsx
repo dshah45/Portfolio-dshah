@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
+import { FiMail, FiDownload } from 'react-icons/fi';
 import ProfileIcon from '../assets/dshah.png';
 import './Hero.css';
 
